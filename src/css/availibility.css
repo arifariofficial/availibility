@@ -1,0 +1,294 @@
+.availibility-header {
+  background-color: #f1f2f5;
+  color: rgba(0, 0, 0, 0.759);
+  text-align: center;
+  margin: 0.2rem;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  text-shadow: 1px 1px 5px lightpink;
+}
+.weekday-empty-cell-container {
+  background-color: #f1f2f5;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1px;
+  border-radius: 5px;
+}
+
+.weekday-cell-container {
+  background-color: #f1f2f5;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.empty-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 1.5rem;
+  margin: 0 0.1rem;
+  background-color: #efefef;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  text-shadow: 1px 1px 5px 1px lightpink;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0px 1px 5px 1px teal;
+  font-size: 15px;
+}
+
+.weekday-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 1.5rem;
+  margin: 0 0.1rem;
+  background-color: #efefef;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  box-shadow: 0px 1px 5px 1px teal;
+  text-shadow: 1px 1px 5px lightpink;
+  font-size: small;
+}
+
+.week-time-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: none;
+}
+
+.weekNumber-date-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: #f1f2f5;
+  border-radius: 5px;
+  margin: 1px;
+}
+
+.week-row-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 5px;
+  background: none;
+}
+.weekday-cell:hover {
+  cursor: default;
+}
+
+.date-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.date-cell button {
+  background-color: #e2e8f0;
+}
+
+.date-cell {
+  width: 100%;
+  height: 1.5rem;
+  margin: 0 0.1rem;
+  background-color: #e2e8f0;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  border: none;
+  box-shadow: 0px 0px 5px teal;
+}
+
+.date-cell-container {
+  box-shadow: 0px 0px 2px teal;
+  display: flex;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.date-cell:hover {
+  border-radius: 5px;
+  border: 1px solid darkblue;
+  box-shadow: 0 0 3px blue;
+}
+
+.date-cell:focus {
+  border-radius: 3px;
+  border: 1px solid darkblue;
+  box-shadow: 0 0 3px blue;
+}
+
+.week-number-cell {
+  width: 20%;
+  height: 1.5rem;
+  background-color: #e2e8f0;
+  cursor: pointer;
+  margin: 1px;
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  border: none;
+  box-shadow: 0px 0px 5px 1px teal;
+}
+.week-number-cell:hover {
+  border-radius: 5px;
+  border: 1px solid darkblue;
+  box-shadow: 0 0 3px blue;
+}
+
+.dropDown-show {
+  background-color: #fcfcfd;
+  border-radius: 5px;
+  display: flex;
+  position: absolute;
+  width: 165px;
+  height: 160px;
+  box-shadow: 3px 3px 20px teal;
+  margin-top: 1.6rem;
+  margin-left: -2rem;
+  z-index: 1;
+}
+
+.dropDown-hidden {
+  display: none;
+}
+
+.dropDown-container {
+  border-radius: 5px;
+  width: 100%;
+  z-index: 1;
+  margin: 2px;
+  background-color: #f1f2f5;
+  box-shadow: 0px 0px 2px teal;
+  overflow-y: scroll;
+  border-radius: 5px;
+}
+
+.dropDown {
+  display: flex;
+  flex-direction: column;
+}
+.dropDown-header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f1f2f5;
+  border-bottom: 1px solid red;
+  text-shadow: 1px 1px 10px lightpink;
+  color: rgb(68, 68, 68);
+  font-size: 13px;
+  height: 1.2rem;
+  box-shadow: 0px 1px 5px teal;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  border: none;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+}
+
+.button-clear {
+  font-size: 0.6rem;
+  height: 1rem;
+  box-shadow: 0 0 1px blue;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  box-shadow: 1px 1px 5px teal;
+}
+.time-container {
+  background-color: #f1f2f5;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  margin: 3px;
+  padding: 0 6px;
+  margin-top: 4px;
+  box-shadow: 1px 1px 2px teal;
+  border-radius: 5px;
+}
+
+.time-cell {
+  background-color: #f1f2f5;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  border: 1px solid gray;
+  box-shadow: 1px 0px 1px teal;
+}
+
+.selected {
+  background-color: #d1d6de;
+  border: 1px solid gray;
+  box-shadow: 1px 1px 2px teal;
+  border-radius: 5px;
+}
+
+.time-cell:focus {
+  border-radius: 3px;
+  border-radius: 5x;
+}
+
+.time-cell:hover {
+  border: 1px solid darkblue;
+  box-shadow: 0px 0px 3px teal;
+}
+
+.dot {
+  height: 5px;
+  width: 5px;
+  background-color: darkgreen;
+  border-radius: 50%;
+  display: flex;
+  position: absolute;
+  margin-right: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+:disabled {
+  cursor: default;
+  background-color: #f4f4f4;
+  color: #ffffff;
+}
+button:disabled:hover {
+  cursor: default;
+  background-color: #f4f4f4;
+  box-shadow: 0px 0px 2px red;
+  border: none;
+  border-radius: 3px;
+}
+
+.date-cell-div :disabled {
+  background-color: #f4f4f4;
+}
+
+.today {
+  border: 1px solid gray;
+  height: 19px;
+  width: 35px;
+  border-radius: 50%;
+  padding-top: 1px;
+  background-color: #f9f9fb;
+}
+
+.today:hover {
+  color: black;
+}
+
+.today,
+.date-cell {
+  color: black;
+}
