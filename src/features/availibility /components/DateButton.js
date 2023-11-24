@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import DropDown from "./DropDown";
 
-const DateButton = ({ item, disableWeek, setMonthView, index }) => {
+const DateButton = ({ item, weekDisable, setMonthView, index }) => {
   const [display, setDisplay] = useState(false);
-  const [isItemExist, setIsItemExist] = useState(item.isItemExist);
-
-  const handleDateClick = () => {
-    setDisplay(!display);
-  };
 
   const months = [
     "Jan",
@@ -27,17 +22,17 @@ const DateButton = ({ item, disableWeek, setMonthView, index }) => {
   return (
     <div className="date-cell-container">
       <button
-        className={disableWeek ? "date-cell disabled" : "date-cell"}
-        disabled={disableWeek}
-        onClick={() => handleDateClick()}
+        className={weekDisable ? "date-cell disabled" : "date-cell"}
+        disabled={weekDisable}
+        onClick={() => setDisplay(!display)}
         style={{ backgroundColor: `${display ? "#d1d6de" : ""}` }}
         onMouseEnter={() =>
           setMonthView({ month: months[item.month], date: item.number })
         }
       >
         <span
-          className={isItemExist ? "dot" : ""}
-          style={{ visibility: disableWeek ? "hidden" : "visible" }}
+          className={item.isItemExist ? "dot" : ""}
+          style={{ visibility: weekDisable ? "hidden" : "visible" }}
         ></span>
         <div
           className={
@@ -50,13 +45,7 @@ const DateButton = ({ item, disableWeek, setMonthView, index }) => {
         </div>
       </button>
       <div className={display ? "dropDown-show" : "dropDown-hidden"}>
-        <DropDown
-          item={item}
-          display={display}
-          setDisplay={setDisplay}
-          isItemExist={isItemExist}
-          setIsItemExist={setIsItemExist}
-        />
+        <DropDown date={item} display={display} setDisplay={setDisplay} />
       </div>
     </div>
   );

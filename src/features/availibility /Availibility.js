@@ -1,15 +1,15 @@
-import "./css/availibility.css";
-import { useContext, useState } from "react";
-import Weeks from "./component/Weeks";
-import DataContext from "./component/DataContext";
+import "./availibility.css";
+import { useState } from "react";
+import Weeks from "./components/Weeks";
+import { useSelector } from "react-redux";
+import { availibility } from "./availibilitySlice";
 
 const Availibility = () => {
-  const [items] = useContext(DataContext);
+  const items = useSelector(availibility);
+
   const [monthView, setMonthView] = useState({});
 
   const weekday = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
-  console.log(items);
 
   return (
     <div className="availibility">

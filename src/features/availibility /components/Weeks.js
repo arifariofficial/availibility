@@ -1,18 +1,18 @@
-import { useContext, useState } from "react";
 import Date from "./Date";
-import DataContext from "./DataContext";
+import { useSelector, useDispatch } from "react-redux";
+import { setItems } from "../availibilitySlice";
 
 const Weeks = ({ item, setMonthView, index }) => {
-  const [items, setItems] = useContext(DataContext);
-  const [disableWeek, setDisableWeek] = useState(item.weekDisable);
+  const items = useSelector((state) => state.availibility);
+
+  const dispatch = useDispatch();
 
   const handleWeekDisable = (id) => {
     const newItems = items.map((item) =>
       item.id === id ? { ...item, weekDisable: !item.weekDisable } : item
     );
 
-    setItems(newItems);
-    setDisableWeek(!disableWeek);
+    dispatch(setItems(newItems));
   };
 
   return (
@@ -26,10 +26,10 @@ const Weeks = ({ item, setMonthView, index }) => {
       </button>
       <div className="date-row">
         <Date
-          item={item.date}
-          disableWeek={disableWeek}
+          date={item.date}
           setMonthView={setMonthView}
           index={index}
+          weekDisable={item.weekDisable}
         />
       </div>
     </div>

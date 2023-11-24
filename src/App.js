@@ -1,8 +1,9 @@
-import { useState } from "react";
-import Availibility from "./Availibility";
-import DataContext from "./component/DataContext";
-import uuid from "react-uuid";
-import AvailibilityFuntion from "./AvailibilityFuntion";
+import { useEffect } from "react";
+import Availibility from "./features/availibility /Availibility";
+import AvailibilityFunction from "./features/availibilityFunction/AvailibilityFunction";
+import { nanoid } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
+import { setInitialState } from "./features/availibility /availibilitySlice";
 
 const createCalendar = () => {
   const currentDate = new Date();
@@ -15,7 +16,7 @@ const createCalendar = () => {
     for (let j = 0; j < 34; j += 2) {
       for (let k = 0; k < 2; k++) {
         time.push({
-          id: uuid(),
+          id: nanoid(),
           time: `${hour}:${min1}`,
           selected: false,
         });
@@ -49,7 +50,7 @@ const createCalendar = () => {
     }
 
     let calendarDay = {
-      id: uuid(),
+      id: nanoid(),
       month: firstDayOfMonth.getMonth(),
       number: firstDayOfMonth.getDate(),
       today: currentDate.getDate(),
@@ -75,28 +76,29 @@ const createCalendar = () => {
     const chunk = currentDays.slice(i, i + 7);
 
     weeks.push({
-      id: uuid(),
+      id: nanoid(),
       week: currentWeekNumber,
       weekDisable: false,
       date: chunk,
+      selectedTime: [{}],
     });
     currentWeekNumber++;
   }
   return weeks;
 };
 
-const data = createCalendar();
-
 function App() {
-  const [items, setItems] = useState(data);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setInitialState(createCalendar()));
+  });
 
   return (
-    <DataContext.Provider value={[items, setItems]}>
-      <div className="App">
-        <AvailibilityFuntion />
-        <Availibility />
-      </div>
-    </DataContext.Provider>
+    <div className="App">
+      <AvailibilityFunction />
+      <Availibility />
+    </div>
   );
 }
 

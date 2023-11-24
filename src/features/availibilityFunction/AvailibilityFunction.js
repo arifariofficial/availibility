@@ -1,11 +1,11 @@
-import "./css/availibilityFuntion.css";
-import Me from "./components2/Me";
+import Header from "./components/Header";
+import Matching from "./components/Matching";
+import Me from "./components/Me";
+import MyFriends from "./components/MyFriends";
+import "./availibilityFunction.css";
 import { Route, Routes } from "react-router-dom";
-import MyFriends from "./components2/MyFriends";
-import Matching from "./components2/Matching";
-import Header from "./components2/Header";
 
-const AvailibilityFuntion = () => {
+const AvailibilityFunction = () => {
   return (
     <div className="availibility-function-container">
       <h3 className="h3-header">AVAILIBILITY FUNCTION</h3>
@@ -21,4 +21,4 @@ const AvailibilityFuntion = () => {
   );
 };
 
-export default AvailibilityFuntion;
+export default AvailibilityFunction;

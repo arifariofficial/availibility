@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import DataContext from "../component/DataContext";
-import AvailibilityFuntionBody from "./AvailibilityFuntionBody";
+import { availibility } from "../../availibility /availibilitySlice";
+import { useSelector } from "react-redux";
 
 const Matching = () => {
-  const [items, setItems] = useContext(DataContext);
+  const items = useSelector(availibility);
   return (
     <div className="availibility-weeksAndBody-container">
       <div className="weeks-header-button-container">
@@ -14,9 +13,7 @@ const Matching = () => {
           </button>
         ))}
       </div>
-      <div className="availibility-function-body">
-        <AvailibilityFuntionBody />
-      </div>
+      <div className="availibility-function-body"></div>
     </div>
   );
 };

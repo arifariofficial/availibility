@@ -1,15 +1,15 @@
 import DateButton from "./DateButton";
 
-const Date = ({ item, disableWeek, setMonthView, index }) => {
+const Date = ({ date, setMonthView, index, weekDisable }) => {
   return (
     <div className="date-row disabled">
-      {item.map((item) => (
+      {date.map((item) => (
         <DateButton
           item={item}
           key={item.id}
           index={index}
-          disableWeek={disableWeek}
           setMonthView={setMonthView}
+          weekDisable={weekDisable}
         />
       ))}
     </div>
