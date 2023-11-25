@@ -34,6 +34,10 @@
       "react-app/jest"
     ]
   },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -44,11 +48,10 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ],
-    "engines": {
-      "npm": "10.2.3"
-    }
-  }
+    ]
+
+  }, 
+
   
 
 }
