@@ -31,7 +31,7 @@ const createCalendar = () => {
   const firstDayOfMonth = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth(),
-    currentDate.getDate() - 1
+    currentDate.getDate()
   );
 
   const weekdayOfFirstDay = firstDayOfMonth.getDay() - 1;
@@ -54,9 +54,11 @@ const createCalendar = () => {
       month: firstDayOfMonth.getMonth(),
       number: firstDayOfMonth.getDate(),
       today: currentDate.getDate(),
+      currentMonth: currentDate.getMonth(),
       isItemExist: false,
       year: firstDayOfMonth.getFullYear(),
       day: firstDayOfMonth.getDay(),
+      dayDisable: false,
       time: createTime(),
     };
 

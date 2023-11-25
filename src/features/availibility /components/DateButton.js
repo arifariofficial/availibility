@@ -3,6 +3,13 @@ import DropDown from "./DropDown";
 
 const DateButton = ({ item, weekDisable, setMonthView, index }) => {
   const [display, setDisplay] = useState(false);
+  let disable = false;
+
+  if (item.number < item.today && item.month === item.currentMonth) {
+    disable = true;
+  } else if (item.number > item.today && item.month === item.currentMonth - 1) {
+    disable = true;
+  }
 
   const months = [
     "Jan",
@@ -23,7 +30,7 @@ const DateButton = ({ item, weekDisable, setMonthView, index }) => {
     <div className="date-cell-container">
       <button
         className={weekDisable ? "date-cell disabled" : "date-cell"}
-        disabled={weekDisable}
+        disabled={weekDisable || disable}
         onClick={() => setDisplay(!display)}
         style={{ backgroundColor: `${display ? "#d1d6de" : ""}` }}
         onMouseEnter={() =>

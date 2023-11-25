@@ -1,6 +1,7 @@
 import Date from "./Date";
 import { useSelector, useDispatch } from "react-redux";
 import { setItems } from "../availibilitySlice";
+import { updateTime } from "../../availibilityFunction/availibilityFunctionSlice";
 
 const Weeks = ({ item, setMonthView, index }) => {
   const items = useSelector((state) => state.availibility);
@@ -13,6 +14,7 @@ const Weeks = ({ item, setMonthView, index }) => {
     );
 
     dispatch(setItems(newItems));
+    dispatch(updateTime(id));
   };
 
   return (

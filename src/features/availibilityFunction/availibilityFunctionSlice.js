@@ -18,11 +18,19 @@ const availibilityFunctionSlice = createSlice({
     deleteTime(state, action) {
       return state.filter((item) => item.id !== action.payload.id);
     },
+    updateTime(state, action) {
+      return state.map((item) =>
+        item.item1Id === action.payload
+          ? { ...item, weekDisable: !item.weekDisable }
+          : item
+      );
+    },
   },
 });
 
 export const availibilityFunction = (state) => state.availibilityFunction;
 
-export const { setTime, deleteTime } = availibilityFunctionSlice.actions;
+export const { setTime, deleteTime, updateTime } =
+  availibilityFunctionSlice.actions;
 
 export default availibilityFunctionSlice.reducer;
